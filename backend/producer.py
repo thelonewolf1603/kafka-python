@@ -8,7 +8,6 @@ producer = KafkaProducer(
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 
-# Send messages
 topic = 'test-topic'
 
 while True:
@@ -16,8 +15,6 @@ while True:
         chat_msg = input("Type message: ")
         message = {'message': chat_msg}
         producer.send(topic, value=message)
-        print(f"Sent: {message}")
-        time.sleep(1)
     except KeyboardInterrupt:
         break
 

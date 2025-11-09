@@ -1,7 +1,6 @@
 from kafka import KafkaConsumer
 import json
 
-# Create consumer
 consumer = KafkaConsumer(
     'test-topic',
     bootstrap_servers=['localhost:9092'],
@@ -12,7 +11,6 @@ consumer = KafkaConsumer(
 )
 
 print("Waiting for messages...")
-
 
 for message in consumer:
     print(f"Received: {message.value}")
